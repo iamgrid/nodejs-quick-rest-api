@@ -1,0 +1,4 @@
+/node_modules
+responseLibrary.js
+*.code-workspace
+package-lock.json
