@@ -1,7 +1,7 @@
 # nodejs-quick-rest-api
 
 ## Introduction
-Meant to be ran on localhost (with "npm start"), you put the object you want to get back as json as a property of responseLibrary in .\responseLibrary.js, you fetch from the endpoint like http://localhost:3001?query=[your responseLibrary property name] and hey presto, your very own REST server.
+Meant to be ran on localhost (with "npm start"), you put the object you want to get back as json as a property of responseLibrary in .\responseLibrary.js, you fetch from the endpoint like http://localhost:3001?query=[your_responseLibrary_property_name] and hey presto, your very own REST server.
 
 ## Installation
 1. `git clone` the repo into a folder of your choice
