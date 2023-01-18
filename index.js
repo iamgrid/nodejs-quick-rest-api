@@ -31,8 +31,6 @@ app.use((req, res, next) => {
 
 const responseLibrary = rl.responseLibrary;
 
-// console.log(responseLibrary["response052-1"]);
-
 app.get("/", (req, res) => {
 	// res.status("200").send("hello");
 	const queryStr = req.query["query"];

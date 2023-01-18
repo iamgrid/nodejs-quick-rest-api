@@ -1,7 +1,7 @@
 # nodejs-quick-rest-api
 
 ## Introduction
-Meant to be ran on localhost (with "npm start"), you put the object you want to get back as json as a property of responseLibrary in .\responseLibrary.js, you fetch from the endpoint like http://localhost:3001?query=[your_responseLibrary_property_name] and hey presto, your very own REST server.
+Meant to be ran on localhost (with "npm start"), you put the object you want to get back as JSON as a property of responseLibrary in .\responseLibrary.js, you fetch from the endpoint like http://localhost:3001?query=[your_responseLibrary_property_key] and hey presto, your very own REST server.
 
 ## Installation
 1. `git clone` the repo into a folder of your choice
@@ -10,7 +10,7 @@ Meant to be ran on localhost (with "npm start"), you put the object you want to 
 4. Create your responseLibrary.js file in the root folder. The contents should be something like:
 ```
 const responseLibrary = {
-	"your-response-property-name": {
+	"your-response-library-property-key": {
 		are: "you ok",
 		of: "course, never better"
 	}
@@ -21,7 +21,7 @@ module.exports = { responseLibrary };
 
 ## Usage
 1. `npm start`
-2. Talk to the server while it is listening by fetching from the url `http://localhost:3001?query=your-response-property-name`
+2. Talk to the server while it is listening by fetching from the url `http://localhost:3001?query=your-response-library-property-key`
 
 Thanks to the nodemon package, as you save changes to your responseLibrary.js or index.js the server will automatically restart to reflect your updates.
 
