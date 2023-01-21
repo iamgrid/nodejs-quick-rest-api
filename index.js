@@ -1,6 +1,6 @@
 // Run "npm start" in the command line to start listening for requests.
 
-const rl = require("./responseLibrary");
+const responseLibrary = require("./responseLibrary");
 
 const express = require("express");
 const app = express();
@@ -29,16 +29,34 @@ app.use((req, res, next) => {
 	next();
 });
 
-const responseLibrary = rl.responseLibrary;
-
 app.get("/", (req, res) => {
 	// res.status("200").send("hello");
-	const queryStr = req.query["query"];
-	if (queryStr in responseLibrary) {
-		res.status(200).json(responseLibrary[queryStr]);
-	} else {
-		res.status(406).send(`Could not locate '${queryStr}' in responseLibrary.`);
+	const appId = req.query["app"];
+	const pKey = req.query["key"];
+
+	if (typeof appId !== "string") {
+		res
+			.status(406)
+			.send(`The 'app' param is missing from your url parameters.`);
 	}
+	if (!(appId in responseLibrary)) {
+		res.status(406).send(`Could not locate app '${appId}' in responseLibrary.`);
+	}
+
+	if (typeof pKey !== "string") {
+		res
+			.status(406)
+			.send(`The 'key' param is missing from your url parameters.`);
+	}
+	if (!(pKey in responseLibrary[appId])) {
+		res
+			.status(406)
+			.send(
+				`Could not locate a property with key '${pKey}' in responseLibrary['${appId}'].`
+			);
+	}
+
+	res.status(200).json(responseLibrary[appId][pKey]);
 });
 
 // launch our server on port 3001
